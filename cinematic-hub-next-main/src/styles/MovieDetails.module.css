@@ -1,0 +1,824 @@
+.container {
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #ffffff;
+  padding-top: 70px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.backdropImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 15, 15, 0.3) 0%,
+    rgba(15, 15, 15, 0.7) 50%,
+    rgba(15, 15, 15, 0.95) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.backButton:hover {
+  color: #e50914;
+}
+
+.movieInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.title h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.playButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #e50914;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.playButton:hover {
+  background-color: #b8070f;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actionButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.detailsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.infoCard {
+  background-color: rgba(31, 31, 31, 0.5);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.infoCard h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.infoHeader h2 {
+  margin: 0;
+}
+
+.infoValue {
+  font-size: 1.25rem;
+  color: #f0f0f0;
+}
+
+.languageTags, .genreTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.languageTag, .genreTag {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+}
+
+.ratingsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ratingBox {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ratingBox h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #f0f0f0;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stars span {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.crewMember, .castMember {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profileImage, .castImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profilePlaceholder, .castPlaceholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crewInfo h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: #f0f0f0;
+}
+
+.crewInfo p {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.castGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.addReviewButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reviewCard {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.reviewerInfo h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: #f0f0f0;
+}
+
+.reviewerInfo p {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.reviewRating span {
+  margin-left: 0.25rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.reviewContent p {
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+.reviewPagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.paginationDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.activeDot {
+  background-color: #e50914;
+  width: 20px;
+  border-radius: 10px;
+}
+
+/* MovieDetails.module.css additions for new layout */
+.heroSectionCustom {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  background: #18181c;
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.backdropCustom {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.overlayCustom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(0,0,0,0.7) 60%,#18181c 100%);
+  z-index: 2;
+}
+.heroContentCustom {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 2rem 3rem;
+  gap: 2.5rem;
+}
+.posterWrapperCustom {
+  min-width: 220px;
+  min-height: 320px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #23232b;
+}
+.posterCustom {
+  border-radius: 16px;
+  object-fit: cover;
+}
+.detailsCustom {
+  color: #fff;
+  max-width: 600px;
+}
+.titleCustom {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.taglineCustom {
+  font-size: 1.2rem;
+  color: #b3b3b3;
+  margin-bottom: 1rem;
+}
+.actionRowCustom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.playNowBtn {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.playNowBtn:hover {
+  background: #b0060f;
+}
+.actionIcon {
+  background: #23232b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actionIcon:hover {
+  background: #353545;
+}
+.shortDescCustom {
+  color: #d1d1d1;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+.metaCustom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem 2rem;
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+.ratingsCustom {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.castSectionCustom {
+  margin: 2.5rem 0 1.5rem 0;
+}
+.castSectionCustom h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+.castListCustom {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.castCardCustom {
+  background: #23232b;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.castImgCustom {
+  width: 60px;
+  height: 60px;
+  background: #353545;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+.castNameCustom {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+.footerCustom {
+  background: #18181c;
+  color: #b3b3b3;
+  padding: 2.5rem 0 1.2rem 0;
+  margin-top: 3rem;
+}
+.footerGridCustom {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+}
+.footerGridCustom h4 {
+  color: #fff;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+.footerGridCustom ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footerGridCustom li {
+  margin-bottom: 0.4rem;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footerGridCustom li:hover {
+  color: #fff;
+}
+.socialIconsCustom {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+.footerBottomCustom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: #7a7a7a;
+  border-top: 1px solid #23232b;
+  padding-top: 1rem;
+}
+
+/* Carded layout and sidebar improvements */
+.pageContentCustom {
+  display: flex;
+  gap: 2.5rem;
+  margin: 2.5rem auto 0 auto;
+  max-width: 1200px;
+  align-items: flex-start;
+}
+.leftColumnCustom {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebarCustom {
+  flex: 1;
+  min-width: 270px;
+  max-width: 320px;
+}
+.cardCustom {
+  background: #202024;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+}
+.cardCustom h4 {
+  color: #fff;
+  margin-bottom: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.castListCustom {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.castCardCustom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  margin-right: 0.5rem;
+}
+.castImgCustom {
+  width: 56px;
+  height: 56px;
+  background: #353545;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+  border: 2px solid #23232b;
+}
+.castNameCustom {
+  color: #fff;
+  font-size: 0.98rem;
+  text-align: center;
+}
+.reviewsHeaderCustom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+.addReviewBtnCustom {
+  background: #23232b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.addReviewBtnCustom:hover {
+  background: #353545;
+}
+.reviewsGridCustom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.reviewCardCustom {
+  background: #23232b;
+  border-radius: 12px;
+  padding: 1rem 1rem 0.7rem 1rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.reviewHeaderCustom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+.reviewerInfoCustom {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.reviewerAvatarCustom {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.reviewerAvatarPlaceholderCustom {
+  width: 40px;
+  height: 40px;
+  background: #353545;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reviewerNameCustom {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.reviewerCountryCustom {
+  color: #b3b3b3;
+  font-size: 0.92rem;
+}
+.reviewRatingCustom {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #e50914;
+  font-weight: 600;
+}
+.reviewContentCustom {
+  color: #e0e0e0;
+  font-size: 0.98rem;
+}
+.metaSidebarCustom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+}
+.ratingsSidebarCustom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 1024px) {
+  .title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .playButton {
+    max-width: 300px;
+  }
+  
+  .ratingsContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .metaSidebarCustom {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+  
+  .title h1 {
+    font-size: 2rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .detailsSection {
+    padding: 0 1rem 2rem;
+  }
+  
+  .infoCard {
+    padding: 1.25rem;
+  }
+  
+  .castGrid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  .metaSidebarCustom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .sidebarCustom {
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+  }
+  
+  .title h1 {
+    font-size: 1.75rem;
+  }
+  
+  .actionButtons {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .reviewHeader {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .reviewRating {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroContentCustom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+  .posterWrapperCustom {
+    min-width: 140px;
+    min-height: 200px;
+  }
+  .footerBottomCustom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .pageContentCustom {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .sidebarCustom {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .reviewsGridCustom {
+    grid-template-columns: 1fr;
+  }
+}
