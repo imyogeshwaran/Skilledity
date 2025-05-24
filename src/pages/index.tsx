@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import MovieSection from '@/components/MovieSection';
 import SearchResults from '@/components/SearchResults';
+import { PageTransition } from '@/components/ui/page-transition';
 import { fetchMoviesBySection, searchMovies } from '@/lib/api';
 import styles from '@/styles/Home.module.css';
 
@@ -91,28 +92,8 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const handleStart = () => {
-      document.body.setAttribute('loading', 'true');
-    };
-
-    const handleComplete = () => {
-      document.body.removeAttribute('loading');
-    };
-
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
-
-    return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
-    };
-  }, [router.events]);
-
   return (
-    <>
+    <PageTransition>
       <div className={styles.container}>
         <Navbar onSearch={handleSearch} onNavigate={scrollToSection} />
         {searchResults ? (
@@ -180,6 +161,6 @@ export default function Home() {
           </>
         )}
       </div>
-    </>
+    </PageTransition>
   );
-}
+} 

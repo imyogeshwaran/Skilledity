@@ -36,6 +36,26 @@ export default function MovieDetails() {
     router.push(`/?search=${encodeURIComponent(query)}`);
   };
 
+  useEffect(() => {
+    const handleStart = () => {
+      document.body.setAttribute('loading', 'true');
+    };
+
+    const handleComplete = () => {
+      document.body.removeAttribute('loading');
+    };
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router.events]);
+
   if (detailsLoading || !movieDetails) {
     return <div className={styles.loading}>Loading movie details...</div>;
   }

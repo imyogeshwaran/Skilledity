@@ -4,21 +4,25 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
+import { LoadingOverlay } from '@/components/ui/loading-overlay';
 import Footer from '@/components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleStart = () => {
+      setIsLoading(true);
       document.body.setAttribute('loading', 'true');
     };
 
     const handleComplete = () => {
+      setIsLoading(false);
       document.body.removeAttribute('loading');
     };
 
@@ -38,11 +42,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Component {...pageProps} />
+        {isLoading && <LoadingOverlay />}
+        <div className="page-transition-enter">
+          <Component {...pageProps} />
+        </div>
         <Footer />
       </TooltipProvider>
     </QueryClientProvider>
   );
 }
 
-export default MyApp;
+export default MyApp; 
