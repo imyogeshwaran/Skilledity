@@ -22,8 +22,8 @@ type FormFieldContextValue<
   name: TName
 }
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
+const FormFieldContext = React.createContext<FormFieldContextValue<FieldValues, FieldPath<FieldValues>>>(
+  {} as FormFieldContextValue<FieldValues, FieldPath<FieldValues>>
 )
 
 const FormField = <
