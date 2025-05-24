@@ -100,7 +100,11 @@ const FormLabel = React.forwardRef<
 })
 FormLabel.displayName = "FormLabel"
 
-const isValidReactNode = (child: any): boolean => {
+function isFunction(value: unknown): value is (...args: unknown[]) => unknown {
+  return typeof value === 'function';
+}
+
+const isValidReactNode = (child: unknown): boolean => {
   return (
     child === null ||
     child === undefined ||
@@ -110,10 +114,6 @@ const isValidReactNode = (child: any): boolean => {
     React.isValidElement(child) ||
     (Array.isArray(child) && child.every(isValidReactNode))
   )
-}
-
-function isFunction(value: any): value is (...args: any[]) => any {
-  return typeof value === 'function';
 }
 
 const FormControl = React.forwardRef<
